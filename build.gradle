@@ -4,20 +4,21 @@ buildscript {
 	mavenCentral()
     }
     dependencies {
-    	classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    	classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
+apply plugin: 'io.spring.dependency-management'
 
 logging.captureStandardOutput LogLevel.QUIET
 
 project.ext {
-    cucumberVersion = "1.2.5"
+    cucumberVersion = "1.2.6"
     junitVersion = "4.12"
-    seleniumVersion = "3.4.0"
+    seleniumVersion = "3.141.59"
 }
 
 run {
@@ -51,7 +52,7 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: seleniumVersion
-    testCompile("io.github.bonigarcia:webdrivermanager:1.6.2") {
+    testCompile("io.github.bonigarcia:webdrivermanager:3.7.1") {
         exclude group: 'org.seleniumhq.selenium'
     }
     testCompile("org.springframework.boot:spring-boot-starter-test")
